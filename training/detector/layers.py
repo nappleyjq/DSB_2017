@@ -2,7 +2,6 @@ import numpy as np
 
 import torch
 from torch import nn
-import math
 
 
 class PostRes2d(nn.Module):

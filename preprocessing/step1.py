@@ -1,20 +1,18 @@
-import numpy as np  # linear algebra
-import pandas as pd  # data processing, CSV file I/O (e.g. pd.read_csv)
-import dicom
 import os
-import scipy.ndimage
+import dicom
 import matplotlib.pyplot as plt
-
-from skimage import measure, morphology
+import numpy as np  # linear algebra
+import scipy.ndimage
+from skimage import measure
 
 
 def load_scan(path):
     slices = [dicom.read_file(path + '/' + s) for s in os.listdir(path)]
     slices.sort(key=lambda x: float(x.ImagePositionPatient[2]))
     if slices[0].ImagePositionPatient[2] == slices[1].ImagePositionPatient[2]:
-        sec_num = 2;
+        sec_num = 2
         while slices[0].ImagePositionPatient[2] == slices[sec_num].ImagePositionPatient[2]:
-            sec_num = sec_num + 1;
+            sec_num = sec_num + 1
         slice_num = int(len(slices) / sec_num)
         slices.sort(key=lambda x: float(x.InstanceNumber))
         slices = slices[0:slice_num]
@@ -127,7 +125,8 @@ def all_slice_analysis(bw, spacing, cut_num=0, vol_limit=[0.68, 8.2], area_th=6e
 
     # fill back the parts removed earlier
     if cut_num > 0:
-        # bw1 is bw with removed slices, bw2 is a dilated version of bw, part of their intersection is returned as final mask
+        # bw1 is bw with removed slices, bw2 is a dilated version of bw, part of their intersection is returned as
+        # final mask
         bw1 = np.copy(bw)
         bw1[-cut_num:] = bw0[-cut_num:]
         bw2 = np.copy(bw)

@@ -1,36 +1,13 @@
-import torch
-from torch import nn
 from layers import *
 
-config = {}
-config['anchors'] = [10.0, 30.0, 60.]
-config['chanel'] = 1
-config['crop_size'] = [128, 128, 128]
-config['stride'] = 4
-config['datadir'] = '/run/shm/preprocess_1_3/'
-
-config['max_stride'] = 16
-config['num_neg'] = 800
-config['th_neg'] = 0.02
-config['th_pos_train'] = 0.5
-config['th_pos_val'] = 1
-config['num_hard'] = 2
-config['bound_size'] = 12
-config['reso'] = 1
-config['sizelim'] = 6.  # mm
-config['sizelim2'] = 30
-config['sizelim3'] = 40
-config['aug_scale'] = True
-config['r_rand_crop'] = 0.3
-config['pad_value'] = 170
-config['luna_raw'] = True
-config['cleanimg'] = True
-config['augtype'] = {'flip': True, 'swap': False, 'scale': True, 'rotate': False}
-config['blacklist'] = ['868b024d9fa388b7ddab12ec1c06af38', '990fbe3f0a1b53878669967b9afd1441',
-                       'adc3bbc63d40f8761c59be10f1e504c3']
-
-config['lr_stage'] = np.array([50, 100, 120])
-config['lr'] = [0.01, 0.001, 0.0001]
+config = {'anchors': [10.0, 30.0, 60.], 'chanel': 1, 'crop_size': [128, 128, 128], 'stride': 4,
+          'datadir': '/run/shm/preprocess_1_3/', 'max_stride': 16, 'num_neg': 800, 'th_neg': 0.02, 'th_pos_train': 0.5,
+          'th_pos_val': 1, 'num_hard': 2, 'bound_size': 12, 'reso': 1, 'sizelim': 6., 'sizelim2': 30, 'sizelim3': 40,
+          'aug_scale': True, 'r_rand_crop': 0.3, 'pad_value': 170, 'luna_raw': True, 'cleanimg': True,
+          'augtype': {'flip': True, 'swap': False, 'scale': True, 'rotate': False},
+          'blacklist': ['868b024d9fa388b7ddab12ec1c06af38', '990fbe3f0a1b53878669967b9afd1441',
+                        'adc3bbc63d40f8761c59be10f1e504c3'], 'lr_stage': np.array([50, 100, 120]),
+          'lr': [0.01, 0.001, 0.0001]}
 
 
 # config['blacklist'] = ['868b024d9fa388b7ddab12ec1c06af38','d92998a73d4654a442e6d6ba15bbb827','990fbe3f0a1b53878669967b9afd1441','820245d8b211808bd18e78ff5be16fdb','adc3bbc63d40f8761c59be10f1e504c3',

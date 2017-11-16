@@ -40,7 +40,7 @@ nod_net = nod_net.cuda()
 cudnn.benchmark = True
 nod_net = DataParallel(nod_net)
 
-bbox_result_path = './bbox_result'
+bbox_result_path = 'bbox_result'
 if not os.path.exists(bbox_result_path):
     os.mkdir(bbox_result_path)
 # testsplit = [f.split('_clean')[0] for f in os.listdir(prep_result_path) if '_clean' in f]
