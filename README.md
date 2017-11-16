@@ -1,4 +1,4 @@
-The network archetecture is shown below
+The network architecture is shown below
 
 <img src="./images/nodulenet.png" width=50%>
 
